@@ -11,9 +11,15 @@ import ARKit
 
 class NodePositionManager {
     
-    private var currentX: CGFloat = 0
-    private var currentY: CGFloat = 0
-    private var currentZ: CGFloat = 0
+    private var currentX: CGFloat
+    private var currentY: CGFloat
+    private var currentZ: CGFloat
+    
+    init(position: SCNVector3) {
+        currentX = CGFloat(position.x)
+        currentY = CGFloat(position.y)
+        currentZ = CGFloat(position.z)
+    }
     
     func updatePositionFor(angle: CGFloat, displacement: CGFloat) -> SCNVector3 {
         let radAngle = angle * .pi / 180

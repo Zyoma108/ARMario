@@ -21,7 +21,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     var sessionConfig = ARWorldTrackingConfiguration()
     private weak var marioNode: SCNNode!
-    private let positionManager = NodePositionManager()
+    private var positionManager: NodePositionManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,16 +141,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBAction func keepClicked(_ sender: Any) {
-        for node in sceneView.scene.rootNode.childNodes {
-            let hero = Hero(named: "Bob.dae")!
-            hero.position = SCNVector3Make(node.position.x, node.position.y, node.position.z)
-            sceneView.scene.rootNode.addChildNode(hero)
-            node.removeFromParentNode()
-            resetButton.isHidden = true
-            keepButton.isHidden = true
-            joystickView.isHidden = false
-            jumpButtonView.isHidden = false
-        }
+        guard let firstNode = sceneView.scene.rootNode.childNodes.first else { return }
+        
+        let hero = Hero(named: "Bob.dae")!
+        hero.position = SCNVector3Make(firstNode.position.x, firstNode.position.y, firstNode.position.z)
+        sceneView.scene.rootNode.addChildNode(hero)
+        firstNode.removeFromParentNode()
+        marioNode = hero
+        positionManager = NodePositionManager(position: marioNode.position)
+        
+        resetButton.isHidden = true
+        keepButton.isHidden = true
+        joystickView.isHidden = false
+        jumpButtonView.isHidden = false
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
