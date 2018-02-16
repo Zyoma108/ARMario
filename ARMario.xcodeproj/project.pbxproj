@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		114393A520374EFC000D9C71 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114393A420374EFC000D9C71 /* Hero.swift */; };
+		114393A720374F40000D9C71 /* Bob.dae in Resources */ = {isa = PBXBuildFile; fileRef = 114393A620374F40000D9C71 /* Bob.dae */; };
 		9E03EAF8203735DC0002BAF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E03EAF7203735DC0002BAF3 /* AppDelegate.swift */; };
 		9E03EAFA203735DC0002BAF3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E03EAF9203735DC0002BAF3 /* art.scnassets */; };
 		9E03EAFC203735DC0002BAF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E03EAFB203735DC0002BAF3 /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		114393A420374EFC000D9C71 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
+		114393A620374F40000D9C71 /* Bob.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = Bob.dae; sourceTree = "<group>"; };
 		9E03EAF4203735DC0002BAF3 /* ARMario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARMario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E03EAF7203735DC0002BAF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E03EAF9203735DC0002BAF3 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -43,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		114393A320374EFC000D9C71 /* Hero */ = {
+			isa = PBXGroup;
+			children = (
+				114393A420374EFC000D9C71 /* Hero.swift */,
+			);
+			path = Hero;
+			sourceTree = "<group>";
+		};
 		9E03EAEB203735DC0002BAF3 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +74,7 @@
 		9E03EAF6203735DC0002BAF3 /* ARMario */ = {
 			isa = PBXGroup;
 			children = (
+				114393A320374EFC000D9C71 /* Hero */,
 				A5DED09120374AFB0076996C /* Resources */,
 				9E03EAF7203735DC0002BAF3 /* AppDelegate.swift */,
 				9E03EAF9203735DC0002BAF3 /* art.scnassets */,
@@ -87,6 +100,7 @@
 		A5DED09120374AFB0076996C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				114393A620374F40000D9C71 /* Bob.dae */,
 				A5DED09220374B140076996C /* plane.jpeg */,
 			);
 			path = Resources;
@@ -151,6 +165,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				114393A720374F40000D9C71 /* Bob.dae in Resources */,
 				9E03EAFA203735DC0002BAF3 /* art.scnassets in Resources */,
 				A5DED09320374B140076996C /* plane.jpeg in Resources */,
 				9E03EB04203735DC0002BAF3 /* LaunchScreen.storyboard in Resources */,
@@ -166,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				114393A520374EFC000D9C71 /* Hero.swift in Sources */,
 				9E03EB11203740990002BAF3 /* JoyStickView.swift in Sources */,
 				9E03EAFC203735DC0002BAF3 /* ViewController.swift in Sources */,
 				9E03EB10203740990002BAF3 /* CoreGraphics+Additions.swift in Sources */,
@@ -243,7 +259,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -294,7 +310,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -307,10 +323,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZY852AB5TE;
 				INFOPLIST_FILE = ARMario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zyoma.ARMario;
+				PRODUCT_BUNDLE_IDENTIFIER = zyoma.ARMario2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -322,10 +338,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ZY852AB5TE;
 				INFOPLIST_FILE = ARMario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zyoma.ARMario;
+				PRODUCT_BUNDLE_IDENTIFIER = zyoma.ARMario2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
