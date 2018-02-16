@@ -15,6 +15,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet private weak var joystickView: JoyStickView!
     
+    var sessionConfig = ARWorldTrackingConfiguration()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         joystickView.movable = false
@@ -30,24 +32,29 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene()
-        let hero = Hero(named: "Bob.dae")!
-        
-        sceneView.scene = scene
-        scene.rootNode.addChildNode(hero)
+//        let scene = SCNScene()
+//        let hero = Hero(named: "Bob.dae")!
+//
+//        sceneView.scene = scene
+//        scene.rootNode.addChildNode(hero)
+    }
+    
+    private func configure() {
+        joystickView.movable = false
+        joystickView.monitor = { angle, displacement in
+            print("Angle: \(angle)")
+            print("Displacement: \(displacement)")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Create a session configuration
-        let configuration = ARWorldTrackingConfiguration()
-        
         // Tell the session to automatically detect horizontal planes
-        configuration.planeDetection = .horizontal
+        sessionConfig.planeDetection = .horizontal
 
         // Run the view's session
-        sceneView.session.run(configuration)
+        sceneView.session.run(sessionConfig)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -127,6 +134,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             childNode.removeFromParentNode()
         }
     }
+
+    @IBAction func resetClicked(_ sender: Any) {
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+        }
+        // Create a session configuration
+        sessionConfig.planeDetection = .horizontal
+        sceneView.session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
+    }
+    
+    @IBAction func keepClicked(_ sender: Any) {
+        print("Keep!")
+    }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
@@ -142,5 +162,4 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
-
 }
