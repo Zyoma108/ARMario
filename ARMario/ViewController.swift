@@ -20,7 +20,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet private weak var keepButton: UIButton!
     
     var sessionConfig = ARWorldTrackingConfiguration()
-    private weak var marioNode: SCNNode?
+    private weak var marioNode: Hero?
     private var positionManager: NodePositionManager!
     
     enum MarioState {
@@ -150,7 +150,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         guard !joystickView.displacement.isZero,
-            let cameraAngle = sceneView.session.currentFrame?.camera.eulerAngles.y else { return }
+            let cameraAngle = sceneView.session.currentFrame?.camera.eulerAngles.y else {
+                marioNode?.isWalking = false
+                return
+        }
         
         let radAngle = joystickView.angle * .pi / 180
         let positionAngle = radAngle - CGFloat(cameraAngle) - CGFloat.pi / 2
@@ -158,8 +161,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         marioNode?.position = positionManager.updatePositionFor(angle: positionAngle,
                                                                 displacement: joystickView.displacement)
-        
         marioNode?.eulerAngles = SCNVector3(0, rotationAngle, 0)
+        marioNode?.isWalking = true
     }
 
     @IBAction func resetClicked(_ sender: Any) {
