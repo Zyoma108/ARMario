@@ -78,7 +78,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create the geometry and its materials
         let plane = SCNPlane(width: CGFloat(anchor.extent.x), height: CGFloat(anchor.extent.z))
         
-        let planeImage = UIImage(named: "plane.jpeg")
+        let planeImage = UIImage(named: "plane.png")
         let planeMaterial = SCNMaterial()
         planeMaterial.diffuse.contents = planeImage
         planeMaterial.isDoubleSided = true
@@ -139,14 +139,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBAction func keepClicked(_ sender: Any) {
-        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
-            if let anchor = sceneView.anchor(for: node) {
-                if let planeAnchor = anchor as? ARPlaneAnchor {
-                    let hero = Hero(named: "Bob.dae")!
-                    hero.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
-                    sceneView.scene.rootNode.addChildNode(hero)
-                }
-            }
+        for node in sceneView.scene.rootNode.childNodes {
+            let hero = Hero(named: "Bob.dae")!
+            hero.position = SCNVector3Make(node.position.x, node.position.y, node.position.z)
+            sceneView.scene.rootNode.addChildNode(hero)
             node.removeFromParentNode()
         }
     }
