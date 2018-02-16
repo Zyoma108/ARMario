@@ -15,6 +15,7 @@
 		9E03EB04203735DC0002BAF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E03EB02203735DC0002BAF3 /* LaunchScreen.storyboard */; };
 		9E03EB10203740990002BAF3 /* CoreGraphics+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E03EB0E203740990002BAF3 /* CoreGraphics+Additions.swift */; };
 		9E03EB11203740990002BAF3 /* JoyStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E03EB0F203740990002BAF3 /* JoyStickView.swift */; };
+		A5DED09320374B140076996C /* plane.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A5DED09220374B140076996C /* plane.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9E03EB05203735DC0002BAF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E03EB0E203740990002BAF3 /* CoreGraphics+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Additions.swift"; sourceTree = "<group>"; };
 		9E03EB0F203740990002BAF3 /* JoyStickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoyStickView.swift; sourceTree = "<group>"; };
+		A5DED09220374B140076996C /* plane.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plane.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		9E03EAF6203735DC0002BAF3 /* ARMario */ = {
 			isa = PBXGroup;
 			children = (
+				A5DED09120374AFB0076996C /* Resources */,
 				9E03EAF7203735DC0002BAF3 /* AppDelegate.swift */,
 				9E03EAF9203735DC0002BAF3 /* art.scnassets */,
 				9E03EAFB203735DC0002BAF3 /* ViewController.swift */,
@@ -79,6 +82,14 @@
 				9E03EB0F203740990002BAF3 /* JoyStickView.swift */,
 			);
 			path = Vendors;
+			sourceTree = "<group>";
+		};
+		A5DED09120374AFB0076996C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A5DED09220374B140076996C /* plane.jpeg */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E03EAFA203735DC0002BAF3 /* art.scnassets in Resources */,
+				A5DED09320374B140076996C /* plane.jpeg in Resources */,
 				9E03EB04203735DC0002BAF3 /* LaunchScreen.storyboard in Resources */,
 				9E03EB01203735DC0002BAF3 /* Assets.xcassets in Resources */,
 				9E03EAFF203735DC0002BAF3 /* Main.storyboard in Resources */,
@@ -295,10 +307,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5XPG2C6E9V;
+				DEVELOPMENT_TEAM = XLRJVN53EZ;
 				INFOPLIST_FILE = ARMario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zyoma.ARMario;
+				PRODUCT_BUNDLE_IDENTIFIER = zyoma.ARMario1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -310,10 +322,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5XPG2C6E9V;
+				DEVELOPMENT_TEAM = XLRJVN53EZ;
 				INFOPLIST_FILE = ARMario/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = zyoma.ARMario;
+				PRODUCT_BUNDLE_IDENTIFIER = zyoma.ARMario1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
