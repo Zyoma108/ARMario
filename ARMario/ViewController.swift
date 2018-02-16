@@ -30,10 +30,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.showsStatistics = true
         
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene()
+        let hero = Hero(named: "Bob.dae")!
         
-        // Set the scene to the view
         sceneView.scene = scene
+        scene.rootNode.addChildNode(hero)
     }
     
     override func viewWillAppear(_ animated: Bool) {
