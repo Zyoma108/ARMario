@@ -102,6 +102,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         
+        sceneView.scene.rootNode.enumerateChildNodes { (node1, stop) in
+            if node1 != node {
+                node1.removeFromParentNode()
+            }
+        }
         // Remove existing plane nodes
         node.enumerateChildNodes {
             (childNode, _) in
@@ -134,7 +139,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBAction func keepClicked(_ sender: Any) {
-        print("Keep!")
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            if let anchor = sceneView.anchor(for: node) {
+                if let planeAnchor = anchor as? ARPlaneAnchor {
+                    let hero = Hero(named: "Bob.dae")!
+                    hero.position = SCNVector3Make(planeAnchor.center.x, 0, planeAnchor.center.z)
+                    sceneView.scene.rootNode.addChildNode(hero)
+                }
+            }
+            node.removeFromParentNode()
+        }
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
