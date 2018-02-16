@@ -22,6 +22,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var sessionConfig = ARWorldTrackingConfiguration()
     private weak var marioNode: Hero?
     private var positionManager: NodePositionManager!
+    private weak var meteoritesNode: MeteoritesNode?
     
     enum MarioState {
         case searchingPlane
@@ -187,6 +188,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         firstNode.removeFromParentNode()
         marioNode = hero
         positionManager = NodePositionManager(position: hero.position)
+        meteoritesNode = MeteoritesNode(position: SCNVector3Make(firstNode.position.x, firstNode.position.y, firstNode.position.z))
+        sceneView.scene.rootNode.addChildNode(meteoritesNode!)
         
         self.marioState = MarioState.gaming
     }
