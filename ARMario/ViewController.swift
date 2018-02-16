@@ -195,7 +195,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     @IBAction func boostClicked(_ sender: Any) {
-        print("Boost clicked")
+        positionManager.boost = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            self?.positionManager.boost = false
+        }
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {

@@ -15,6 +15,8 @@ class NodePositionManager {
     private var currentY: CGFloat
     private var currentZ: CGFloat
     
+    var boost: Bool = false
+    
     init(position: SCNVector3) {
         currentX = CGFloat(position.x)
         currentY = CGFloat(position.y)
@@ -22,7 +24,7 @@ class NodePositionManager {
     }
     
     func updatePositionFor(angle: CGFloat, displacement: CGFloat) -> SCNVector3 {
-        let distance = 0.005 * displacement
+        let distance = boost ? 0.02 : (0.005 * displacement)
         
         currentX = distance * cos(angle) + currentX
         currentZ = distance * sin(angle) + currentZ
