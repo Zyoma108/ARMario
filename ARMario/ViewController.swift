@@ -206,18 +206,23 @@ class ViewController: UIViewController, ARSCNViewDelegate, MeteoritesDelegate {
         }
     }
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+    private func showAhuch() {
+        let label = UILabel(frame: CGRect(x: view.frame.width / 2 - 100,
+                                          y: view.frame.height / 2 - 20,
+                                          width: 200, height: 40))
+        label.text = "AUUUUCH!"
+        label.textAlignment = .center
+        label.textColor = UIColor(red: 1, green: 0, blue: 30 / 255, alpha: 1)
+        label.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        view.addSubview(label)
         
-    }
-    
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
+        UIView.animate(withDuration: 0.2) {
+            label.transform = CGAffineTransform(scaleX: 5, y: 5)
+        }
         
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak label] in
+            label?.removeFromSuperview()
+        }
         
     }
     
