@@ -23,6 +23,34 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     private weak var marioNode: SCNNode?
     private var positionManager: NodePositionManager!
     
+    enum MarioState {
+        case searchingPlane
+        case choosingPlane
+        case gaming
+    }
+    
+    var marioState: MarioState = MarioState.searchingPlane {
+        didSet {
+            switch marioState {
+            case .searchingPlane:
+                keepButton.isHidden = true
+                resetButton.isHidden = true
+                joystickView.isHidden = true
+                jumpButtonView.isHidden = true
+            case .choosingPlane:
+                keepButton.isHidden = false
+                resetButton.isHidden = false
+                joystickView.isHidden = true
+                jumpButtonView.isHidden = true
+            case .gaming:
+                keepButton.isHidden = true
+                resetButton.isHidden = false
+                joystickView.isHidden = false
+                jumpButtonView.isHidden = false
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
@@ -85,8 +113,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
         
         DispatchQueue.main.async {
-            self.keepButton.isHidden = false
-            self.resetButton.isHidden = false
+            self.marioState = MarioState.choosingPlane
         }
         
         return planeNode
@@ -144,10 +171,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         sessionConfig.planeDetection = .horizontal
         sceneView.session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
-        keepButton.isHidden = true
-        resetButton.isHidden = true
-        joystickView.isHidden = true
-        jumpButtonView.isHidden = true
+        marioState = MarioState.searchingPlane
     }
     
     @IBAction func keepClicked(_ sender: Any) {
@@ -161,9 +185,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         marioNode = hero
         positionManager = NodePositionManager(position: hero.position)
         
-        keepButton.isHidden = true
-        joystickView.isHidden = false
-        jumpButtonView.isHidden = false
+        self.marioState = MarioState.gaming
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
