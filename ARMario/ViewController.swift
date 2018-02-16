@@ -181,8 +181,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let hero = Hero(named: "art.scnassets/panda.scn")!
         
-        hero.addChildNode(BlockFabric.bloc!)
-        
         hero.position = SCNVector3Make(firstNode.position.x, firstNode.position.y, firstNode.position.z)
         sceneView.scene.rootNode.addChildNode(hero)
         firstNode.removeFromParentNode()
