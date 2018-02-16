@@ -14,14 +14,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet private weak var joystickView: JoyStickView!
+    @IBOutlet private weak var jumpButtonView: UIView!
+    
+    @IBOutlet private weak var resetButton: UIButton!
+    @IBOutlet private weak var keepButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        joystickView.movable = false
-        joystickView.monitor = { angle, displacement in
-            print("Angle: \(angle)")
-            print("Displacement: \(displacement)")
-        }
+        configure()
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -34,6 +34,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Set the scene to the view
         sceneView.scene = scene
+    }
+    
+    private func configure() {
+        joystickView.movable = false
+        joystickView.monitor = { angle, displacement in
+            print("Angle: \(angle)")
+            print("Displacement: \(displacement)")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -125,6 +133,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             (childNode, _) in
             childNode.removeFromParentNode()
         }
+    }
+
+    @IBAction func resetClicked(_ sender: Any) {
+        print("Reset!")
+    }
+    
+    @IBAction func keepClicked(_ sender: Any) {
+        print("Keep!")
     }
     
     func session(_ session: ARSession, didFailWithError error: Error) {
