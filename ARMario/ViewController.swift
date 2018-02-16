@@ -227,6 +227,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, MeteoritesDelegate {
     }
     
     func pandaIsDead() {
-        print("Panda is dead!!!")
+        DispatchQueue.main.async {
+            self.showAhuch()
+        }
     }
 }
