@@ -1,0 +1,8 @@
+# Xcode
+xcuserdata/
+project.xcworkspace/
+
+# Cocoapods
+Pods/
+Podfile.lock
+WorkspaceSettings.xcsettings
