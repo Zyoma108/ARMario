@@ -50,7 +50,7 @@ class MeteoritesNode: SCNNode {
     fileprivate func checkFallinMeteors() {
         for node in self.childNodes {
             if node.position.y <= 0.0 {
-                if node.position.x < 0.5 && node.position.x > -0.5 && node.position.z < 0.5 && node.position.z > -0.5 {
+                if node.position.x < 0.3 && node.position.x > -0.3 && node.position.z < 0.3 && node.position.z > -0.3 {
                     delegate?.pandaIsDead()
                 }
                 node.removeFromParentNode()
