@@ -102,25 +102,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         
-        let planeNode = createPlaneNode(anchor: planeAnchor)
-        
-        // ARKit owns the node corresponding to the anchor, so make the plane a child node.
-        node.addChildNode(planeNode)
-    }
-    
-    // When a detected plane is updated, make a new planeNode
-    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        
         // Remove existing plane nodes
         node.enumerateChildNodes {
             (childNode, _) in
             childNode.removeFromParentNode()
         }
-        
-        
         let planeNode = createPlaneNode(anchor: planeAnchor)
         
+        // ARKit owns the node corresponding to the anchor, so make the plane a child node.
         node.addChildNode(planeNode)
     }
     
