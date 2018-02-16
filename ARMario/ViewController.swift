@@ -46,15 +46,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             print("Displacement: \(displacement)")
         }
     }
-    
-    private func configure() {
-        joystickView.movable = false
-        joystickView.monitor = { angle, displacement in
-            print("Angle: \(angle)")
-            print("Displacement: \(displacement)")
-        }
-    }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
