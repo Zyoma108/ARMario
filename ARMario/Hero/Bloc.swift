@@ -35,13 +35,21 @@ class Bloc: SCNNode {
     }
     
     func boom() {
-        
-//        let animation = CABasicAnimation(keyPath: "particleSize")
-//        animation.toValue = 2.0
-//        animation.duration = 1.0
-//        animation.repeatCount = 1
-//        fireEmitter?.particleSystem.addAnimation(animation, forKey: "particleSize")
+        SCNTransaction.animateWithDuration(1.0) {
+            self.fireEmitter?.particleSystem.particleSize = 2.0
+        }
     }
     
     private var fireEmitter: ParticleEmitter?
+}
+
+extension SCNTransaction {
+    class func animateWithDuration(_ duration: CFTimeInterval = 0.25, timingFunction: CAMediaTimingFunction? = nil, completionBlock: (() -> Void)? = nil, animations: () -> Void) {
+        begin()
+        self.animationDuration = duration
+        self.completionBlock = completionBlock
+        self.animationTimingFunction = timingFunction
+        animations()
+        commit()
+    }
 }
