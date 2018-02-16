@@ -194,7 +194,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     @IBAction func boostClicked(_ sender: Any) {
         positionManager.boost = true
+        marioNode?.isFireShow = true
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [weak self] in
+            self?.marioNode?.isFireShow = false
             self?.positionManager.boost = false
         }
     }
