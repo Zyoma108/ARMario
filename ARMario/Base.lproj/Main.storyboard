@@ -30,48 +30,16 @@
                                     <constraint firstAttribute="width" constant="100" id="zdh-Y1-IKi"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBg-KK-cWi" userLabel="Jump Button View">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iBg-KK-cWi" userLabel="Jump Button View" customClass="BoostButtonView" customModule="ARMario" customModuleProvider="target">
                                 <rect key="frame" x="517" y="225" width="100" height="100"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JoyStickBase" translatesAutoresizingMaskIntoConstraints="NO" id="UmS-qm-jFK" userLabel="Control Image">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vsk-fd-c0A">
-                                        <rect key="frame" x="25" y="25" width="50" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.00027399760439999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="G7B-gi-Kji"/>
-                                            <constraint firstAttribute="width" constant="50" id="QVb-fT-rSt"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="25"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipToBounds" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c8e-A0-n28" userLabel="Jump Button">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                        <connections>
-                                            <action selector="jumpClicked:" destination="BV1-FR-VrT" eventType="touchUpInside" id="gbD-z3-gXC"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="UmS-qm-jFK" firstAttribute="leading" secondItem="iBg-KK-cWi" secondAttribute="leading" id="23n-hp-Gkr"/>
-                                    <constraint firstAttribute="trailing" secondItem="UmS-qm-jFK" secondAttribute="trailing" id="8mO-d8-7GP"/>
                                     <constraint firstAttribute="height" constant="100" id="Fx7-rf-HXD"/>
-                                    <constraint firstItem="Vsk-fd-c0A" firstAttribute="centerY" secondItem="iBg-KK-cWi" secondAttribute="centerY" id="GP2-0Z-Abj"/>
-                                    <constraint firstAttribute="bottom" secondItem="UmS-qm-jFK" secondAttribute="bottom" id="NER-6e-7ne"/>
-                                    <constraint firstItem="c8e-A0-n28" firstAttribute="top" secondItem="iBg-KK-cWi" secondAttribute="top" id="Nsm-Bd-y8J"/>
-                                    <constraint firstItem="Vsk-fd-c0A" firstAttribute="centerX" secondItem="iBg-KK-cWi" secondAttribute="centerX" id="XAP-2p-zd3"/>
-                                    <constraint firstAttribute="bottom" secondItem="c8e-A0-n28" secondAttribute="bottom" id="e5y-qd-XeP"/>
                                     <constraint firstAttribute="width" constant="100" id="ef3-Po-3ua"/>
-                                    <constraint firstItem="UmS-qm-jFK" firstAttribute="top" secondItem="iBg-KK-cWi" secondAttribute="top" id="pYf-of-mBD"/>
-                                    <constraint firstAttribute="trailing" secondItem="c8e-A0-n28" secondAttribute="trailing" id="sS2-Yz-WKl"/>
-                                    <constraint firstItem="c8e-A0-n28" firstAttribute="leading" secondItem="iBg-KK-cWi" secondAttribute="leading" id="vbC-4E-XUA"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="boostClicked:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9wF-o5-Iog"/>
+                                </connections>
                             </view>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cld-yR-im5" userLabel="Reset Button">
                                 <rect key="frame" x="253.5" y="315" width="60" height="40"/>
@@ -146,7 +114,4 @@
             <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="JoyStickBase" width="100" height="100"/>
-    </resources>
 </document>

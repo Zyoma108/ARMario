@@ -20,6 +20,7 @@
 		9E03EB10203740990002BAF3 /* CoreGraphics+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E03EB0E203740990002BAF3 /* CoreGraphics+Additions.swift */; };
 		9E03EB11203740990002BAF3 /* JoyStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E03EB0F203740990002BAF3 /* JoyStickView.swift */; };
 		9E2D0EEA20376166003F68EC /* NodePositionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2D0EE920376166003F68EC /* NodePositionManager.swift */; };
+		9E2D0EED20378E1D003F68EC /* BoostButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2D0EEC20378E1D003F68EC /* BoostButtonView.swift */; };
 		A5DED09320374B140076996C /* plane.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = A5DED09220374B140076996C /* plane.jpeg */; };
 		A5DED095203761330076996C /* plane.png in Resources */ = {isa = PBXBuildFile; fileRef = A5DED094203761330076996C /* plane.png */; };
 		A5DED09720378DD50076996C /* MeteoritesNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DED09620378DD50076996C /* MeteoritesNode.swift */; };
@@ -41,6 +42,7 @@
 		9E03EB0E203740990002BAF3 /* CoreGraphics+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Additions.swift"; sourceTree = "<group>"; };
 		9E03EB0F203740990002BAF3 /* JoyStickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoyStickView.swift; sourceTree = "<group>"; };
 		9E2D0EE920376166003F68EC /* NodePositionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodePositionManager.swift; sourceTree = "<group>"; };
+		9E2D0EEC20378E1D003F68EC /* BoostButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoostButtonView.swift; sourceTree = "<group>"; };
 		A5DED09220374B140076996C /* plane.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plane.jpeg; sourceTree = "<group>"; };
 		A5DED094203761330076996C /* plane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plane.png; sourceTree = "<group>"; };
 		A5DED09620378DD50076996C /* MeteoritesNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteoritesNode.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				114393A320374EFC000D9C71 /* Hero */,
 				A5DED09120374AFB0076996C /* Resources */,
+				9E2D0EEB20378DE5003F68EC /* Controls */,
 				9E03EAF7203735DC0002BAF3 /* AppDelegate.swift */,
 				9E03EAF9203735DC0002BAF3 /* art.scnassets */,
 				9E03EAFB203735DC0002BAF3 /* ViewController.swift */,
@@ -109,6 +112,14 @@
 				9E03EB0F203740990002BAF3 /* JoyStickView.swift */,
 			);
 			path = Vendors;
+			sourceTree = "<group>";
+		};
+		9E2D0EEB20378DE5003F68EC /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				9E2D0EEC20378E1D003F68EC /* BoostButtonView.swift */,
+			);
+			path = Controls;
 			sourceTree = "<group>";
 		};
 		A5DED09120374AFB0076996C /* Resources */ = {
@@ -200,6 +211,7 @@
 				114393A520374EFC000D9C71 /* Hero.swift in Sources */,
 				9E03EB11203740990002BAF3 /* JoyStickView.swift in Sources */,
 				114393AD203795AB000D9C71 /* BlocFabric.swift in Sources */,
+				9E2D0EED20378E1D003F68EC /* BoostButtonView.swift in Sources */,
 				9E03EAFC203735DC0002BAF3 /* ViewController.swift in Sources */,
 				A5DED09720378DD50076996C /* MeteoritesNode.swift in Sources */,
 				9E03EB10203740990002BAF3 /* CoreGraphics+Additions.swift in Sources */,

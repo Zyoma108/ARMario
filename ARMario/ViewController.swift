@@ -194,6 +194,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         self.marioState = MarioState.gaming
     }
     
+    @IBAction func boostClicked(_ sender: Any) {
+        print("Boost clicked")
+    }
+    
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
         
