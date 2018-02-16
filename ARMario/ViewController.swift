@@ -30,13 +30,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Show statistics such as fps and timing information
         sceneView.showsStatistics = true
-        
-        // Create a new scene
-//        let scene = SCNScene()
-//        let hero = Hero(named: "Bob.dae")!
-//
-//        sceneView.scene = scene
-//        scene.rootNode.addChildNode(hero)
     }
     
     private func configure() {
@@ -144,6 +137,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             hero.position = SCNVector3Make(node.position.x, node.position.y, node.position.z)
             sceneView.scene.rootNode.addChildNode(hero)
             node.removeFromParentNode()
+            resetButton.isHidden = true
+            keepButton.isHidden = true
+            joystickView.isHidden = false
+            jumpButtonView.isHidden = false
         }
     }
     
