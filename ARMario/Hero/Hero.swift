@@ -21,6 +21,6 @@ class Hero: SCNNode {
             addChildNode(node)
         }
         
-        scale = SCNVector3(x:0.003, y: 0.003, z: 0.003)
+        //scale = SCNVector3(x:0.01, y: 0.01, z: 0.01)
     }
 }

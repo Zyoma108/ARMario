@@ -20,7 +20,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet private weak var keepButton: UIButton!
     
     var sessionConfig = ARWorldTrackingConfiguration()
-    private weak var marioNode: SCNNode!
+    private weak var marioNode: SCNNode?
     private var positionManager: NodePositionManager!
     
     override func viewDidLoad() {
@@ -127,7 +127,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         if joystickView.displacement.isZero { return }
         
-        marioNode.position = positionManager.updatePositionFor(angle: joystickView.angle,
+        marioNode?.position = positionManager.updatePositionFor(angle: joystickView.angle,
                                                                displacement: joystickView.displacement)
     }
 
@@ -143,12 +143,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func keepClicked(_ sender: Any) {
         guard let firstNode = sceneView.scene.rootNode.childNodes.first else { return }
         
-        let hero = Hero(named: "Bob.dae")!
+        //let hero = Hero(named: "Bob.dae")!
+        let hero = Hero(named: "art.scnassets/panda.scn")!
         hero.position = SCNVector3Make(firstNode.position.x, firstNode.position.y, firstNode.position.z)
         sceneView.scene.rootNode.addChildNode(hero)
         firstNode.removeFromParentNode()
         marioNode = hero
-        positionManager = NodePositionManager(position: marioNode.position)
+        positionManager = NodePositionManager(position: hero.position)
         
         resetButton.isHidden = true
         keepButton.isHidden = true
