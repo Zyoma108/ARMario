@@ -20,6 +20,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBOutlet private weak var keepButton: UIButton!
     
     var sessionConfig = ARWorldTrackingConfiguration()
+    private weak var marioNode: SCNNode!
+    private let positionManager = NodePositionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -120,6 +122,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             (childNode, _) in
             childNode.removeFromParentNode()
         }
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        if joystickView.displacement.isZero { return }
+        
+        marioNode.position = positionManager.updatePositionFor(angle: joystickView.angle,
+                                                               displacement: joystickView.displacement)
     }
 
     @IBAction func resetClicked(_ sender: Any) {
