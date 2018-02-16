@@ -135,8 +135,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         marioNode?.position = positionManager.updatePositionFor(angle: radAngle + CGFloat(cameraAngle),
                                                                 displacement: joystickView.displacement)
         
-        
-        marioNode.eulerAngles = SCNVector3(0, -radAngle + (CGFloat.pi / 2), 0)
+        marioNode?.eulerAngles = SCNVector3(0, -radAngle + (CGFloat.pi / 2), 0)
     }
 
     @IBAction func resetClicked(_ sender: Any) {
