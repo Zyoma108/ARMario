@@ -178,8 +178,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     @IBAction func keepClicked(_ sender: Any) {
         guard let firstNode = sceneView.scene.rootNode.childNodes.first else { return }
         
-        //let hero = Hero(named: "Bob.dae")!
         let hero = Hero(named: "art.scnassets/panda.scn")!
+        
+        hero.addChildNode(BlockFabric.bloc!)
+        
         hero.position = SCNVector3Make(firstNode.position.x, firstNode.position.y, firstNode.position.z)
         sceneView.scene.rootNode.addChildNode(hero)
         firstNode.removeFromParentNode()

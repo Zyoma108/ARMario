@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		114393A520374EFC000D9C71 /* Hero.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114393A420374EFC000D9C71 /* Hero.swift */; };
 		114393A720374F40000D9C71 /* Bob.dae in Resources */ = {isa = PBXBuildFile; fileRef = 114393A620374F40000D9C71 /* Bob.dae */; };
+		114393AB20379121000D9C71 /* Bloc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114393AA20379121000D9C71 /* Bloc.swift */; };
+		114393AD203795AB000D9C71 /* BlocFabric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 114393AC203795AB000D9C71 /* BlocFabric.swift */; };
 		9E03EAF8203735DC0002BAF3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E03EAF7203735DC0002BAF3 /* AppDelegate.swift */; };
 		9E03EAFA203735DC0002BAF3 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E03EAF9203735DC0002BAF3 /* art.scnassets */; };
 		9E03EAFC203735DC0002BAF3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E03EAFB203735DC0002BAF3 /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		114393A420374EFC000D9C71 /* Hero.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hero.swift; sourceTree = "<group>"; };
 		114393A620374F40000D9C71 /* Bob.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = Bob.dae; sourceTree = "<group>"; };
+		114393AA20379121000D9C71 /* Bloc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bloc.swift; sourceTree = "<group>"; };
+		114393AC203795AB000D9C71 /* BlocFabric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocFabric.swift; sourceTree = "<group>"; };
 		9E03EAF4203735DC0002BAF3 /* ARMario.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARMario.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E03EAF7203735DC0002BAF3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E03EAF9203735DC0002BAF3 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -55,6 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				114393A420374EFC000D9C71 /* Hero.swift */,
+				114393AA20379121000D9C71 /* Bloc.swift */,
+				114393AC203795AB000D9C71 /* BlocFabric.swift */,
 			);
 			path = Hero;
 			sourceTree = "<group>";
@@ -190,10 +196,12 @@
 			files = (
 				114393A520374EFC000D9C71 /* Hero.swift in Sources */,
 				9E03EB11203740990002BAF3 /* JoyStickView.swift in Sources */,
+				114393AD203795AB000D9C71 /* BlocFabric.swift in Sources */,
 				9E03EAFC203735DC0002BAF3 /* ViewController.swift in Sources */,
 				9E03EB10203740990002BAF3 /* CoreGraphics+Additions.swift in Sources */,
 				9E2D0EEA20376166003F68EC /* NodePositionManager.swift in Sources */,
 				9E03EAF8203735DC0002BAF3 /* AppDelegate.swift in Sources */,
+				114393AB20379121000D9C71 /* Bloc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
