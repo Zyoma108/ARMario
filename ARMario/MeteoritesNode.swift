@@ -65,6 +65,10 @@ class MeteoritesNode: SCNNode {
             let randomZ = Float(arc4random_uniform(UInt32(radius * 2))) - 3.0
             node.position = SCNVector3(randomX, startHeightMeteorites, randomZ)
             self.addChildNode(node)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0, execute: {
+                node.boom()
+            })
         }
     }
     

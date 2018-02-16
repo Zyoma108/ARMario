@@ -26,7 +26,6 @@ class Bloc: SCNNode {
             emitter.node = childNode(withName: name, recursively: true)!
             emitter.particleSystem = emitter.node.particleSystems![0]
             emitter.birthRate = emitter.particleSystem.birthRate
-            emitter.particleSystem.birthRate = 0
             emitter.node.isHidden = false
             return emitter
         }
@@ -35,8 +34,8 @@ class Bloc: SCNNode {
     }
     
     func boom() {
-        SCNTransaction.animateWithDuration(1.0) {
-            self.fireEmitter?.particleSystem.particleSize = 2.0
+        SCNTransaction.animateWithDuration(0.3) {
+            self.fireEmitter?.particleSystem.particleSize = 0.6
         }
     }
     
