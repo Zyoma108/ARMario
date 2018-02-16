@@ -88,13 +88,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Rotate it to match the horizontal orientation of the ARPlaneAnchor.
         planeNode.transform = SCNMatrix4MakeRotation(-Float.pi / 2, 1, 0, 0)
         
+        DispatchQueue.main.async {
+            self.keepButton.isHidden = false
+            self.resetButton.isHidden = false
+        }
+        
         return planeNode
     }
     // MARK: - ARSCNViewDelegate
     
     // When a plane is detected, make a planeNode for it
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        
+        if marioNode != nil { return }
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         
         sceneView.scene.rootNode.enumerateChildNodes { (node1, stop) in
@@ -108,7 +113,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             childNode.removeFromParentNode()
         }
         let planeNode = createPlaneNode(anchor: planeAnchor)
-        
         // ARKit owns the node corresponding to the anchor, so make the plane a child node.
         node.addChildNode(planeNode)
     }
@@ -138,6 +142,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Create a session configuration
         sessionConfig.planeDetection = .horizontal
         sceneView.session.run(sessionConfig, options: [.resetTracking, .removeExistingAnchors])
+        keepButton.isHidden = true
+        resetButton.isHidden = true
+        joystickView.isHidden = true
+        jumpButtonView.isHidden = true
     }
     
     @IBAction func keepClicked(_ sender: Any) {
@@ -151,7 +159,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         marioNode = hero
         positionManager = NodePositionManager(position: hero.position)
         
-        resetButton.isHidden = true
         keepButton.isHidden = true
         joystickView.isHidden = false
         jumpButtonView.isHidden = false

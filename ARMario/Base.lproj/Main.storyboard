@@ -73,7 +73,7 @@
                                     <constraint firstItem="c8e-A0-n28" firstAttribute="leading" secondItem="iBg-KK-cWi" secondAttribute="leading" id="vbC-4E-XUA"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cld-yR-im5" userLabel="Reset Button">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cld-yR-im5" userLabel="Reset Button">
                                 <rect key="frame" x="253.5" y="315" width="60" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.00027399760439999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -94,7 +94,7 @@
                                     <action selector="resetClicked:" destination="BV1-FR-VrT" eventType="touchUpInside" id="hYD-7O-vQg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mJ-20-HJL" userLabel="Keep Button">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mJ-20-HJL" userLabel="Keep Button">
                                 <rect key="frame" x="353.5" y="315" width="60" height="40"/>
                                 <color key="backgroundColor" red="1" green="0.00027399760439999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
