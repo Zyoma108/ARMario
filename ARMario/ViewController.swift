@@ -36,10 +36,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     private func configure() {
         joystickView.movable = false
-        joystickView.monitor = { angle, displacement in
-            print("Angle: \(angle)")
-            print("Displacement: \(displacement)")
-        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -129,10 +125,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        guard let cameraAngle = sceneView.session.currentFrame?.camera.eulerAngles.y else { return }
+        
+        print("Camera angle: \(cameraAngle)")
+        
         if joystickView.displacement.isZero { return }
         
-        marioNode?.position = positionManager.updatePositionFor(angle: joystickView.angle,
-                                                               displacement: joystickView.displacement)
+        let radAngle = joystickView.angle * .pi / 180
+        marioNode?.position = positionManager.updatePositionFor(angle: radAngle + CGFloat(cameraAngle),
+                                                                displacement: joystickView.displacement)
+        
+        
+        marioNode.eulerAngles = SCNVector3(0, -radAngle + (CGFloat.pi / 2), 0)
     }
 
     @IBAction func resetClicked(_ sender: Any) {
