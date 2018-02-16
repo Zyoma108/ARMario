@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+class ViewController: UIViewController, ARSCNViewDelegate, MeteoritesDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet private weak var joystickView: JoyStickView!
@@ -150,6 +150,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        if marioNode != nil {
+            meteoritesNode?.updatePosition(marioNode!.position)
+        }
+        
         guard !joystickView.displacement.isZero,
             let cameraAngle = sceneView.session.currentFrame?.camera.eulerAngles.y else {
                 marioNode?.isWalking = false
@@ -187,6 +191,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         marioNode = hero
         positionManager = NodePositionManager(position: hero.position)
         meteoritesNode = MeteoritesNode(position: SCNVector3Make(firstNode.position.x, firstNode.position.y, firstNode.position.z))
+        meteoritesNode?.delegate = self
         sceneView.scene.rootNode.addChildNode(meteoritesNode!)
         
         self.marioState = MarioState.gaming
@@ -214,5 +219,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
+    }
+    
+    func pandaIsDead() {
+        print("Panda is dead!!!")
     }
 }
