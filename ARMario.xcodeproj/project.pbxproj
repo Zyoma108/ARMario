@@ -13,6 +13,8 @@
 		9E03EAFF203735DC0002BAF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E03EAFD203735DC0002BAF3 /* Main.storyboard */; };
 		9E03EB01203735DC0002BAF3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E03EB00203735DC0002BAF3 /* Assets.xcassets */; };
 		9E03EB04203735DC0002BAF3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E03EB02203735DC0002BAF3 /* LaunchScreen.storyboard */; };
+		9E03EB10203740990002BAF3 /* CoreGraphics+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E03EB0E203740990002BAF3 /* CoreGraphics+Additions.swift */; };
+		9E03EB11203740990002BAF3 /* JoyStickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E03EB0F203740990002BAF3 /* JoyStickView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		9E03EB00203735DC0002BAF3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E03EB03203735DC0002BAF3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E03EB05203735DC0002BAF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E03EB0E203740990002BAF3 /* CoreGraphics+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+Additions.swift"; sourceTree = "<group>"; };
+		9E03EB0F203740990002BAF3 /* JoyStickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoyStickView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,9 +66,19 @@
 				9E03EAFD203735DC0002BAF3 /* Main.storyboard */,
 				9E03EB00203735DC0002BAF3 /* Assets.xcassets */,
 				9E03EB02203735DC0002BAF3 /* LaunchScreen.storyboard */,
+				9E03EB0B20373E6A0002BAF3 /* Vendors */,
 				9E03EB05203735DC0002BAF3 /* Info.plist */,
 			);
 			path = ARMario;
+			sourceTree = "<group>";
+		};
+		9E03EB0B20373E6A0002BAF3 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				9E03EB0E203740990002BAF3 /* CoreGraphics+Additions.swift */,
+				9E03EB0F203740990002BAF3 /* JoyStickView.swift */,
+			);
+			path = Vendors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +154,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E03EB11203740990002BAF3 /* JoyStickView.swift in Sources */,
 				9E03EAFC203735DC0002BAF3 /* ViewController.swift in Sources */,
+				9E03EB10203740990002BAF3 /* CoreGraphics+Additions.swift in Sources */,
 				9E03EAF8203735DC0002BAF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

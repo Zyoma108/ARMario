@@ -13,9 +13,15 @@ import ARKit
 class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet private weak var joystickView: JoyStickView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        joystickView.movable = false
+        joystickView.monitor = { angle, displacement in
+            print("Angle: \(angle)")
+            print("Displacement: \(displacement)")
+        }
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -52,6 +58,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Release any cached data, images, etc that aren't in use.
     }
 
+    @IBAction func jumpClicked(_ sender: Any) {
+        print("Jump!")
+    }
     // MARK: - ARSCNViewDelegate
     
 /*
@@ -77,4 +86,5 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
         
     }
+
 }
