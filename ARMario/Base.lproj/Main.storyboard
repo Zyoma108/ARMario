@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -73,15 +74,61 @@
                                     <constraint firstItem="c8e-A0-n28" firstAttribute="leading" secondItem="iBg-KK-cWi" secondAttribute="leading" id="vbC-4E-XUA"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cld-yR-im5" userLabel="Reset Button">
+                                <rect key="frame" x="253.5" y="315" width="60" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.00027399760439999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="J9A-Jx-bn8"/>
+                                    <constraint firstAttribute="width" constant="60" id="toC-as-3wH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="resetClicked:" destination="BV1-FR-VrT" eventType="touchUpInside" id="hYD-7O-vQg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7mJ-20-HJL" userLabel="Keep Button">
+                                <rect key="frame" x="353.5" y="315" width="60" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.00027399760439999999" blue="0.1176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="3E4-cv-aG3"/>
+                                    <constraint firstAttribute="height" constant="40" id="ldj-j9-4DI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <state key="normal" title="Keep">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="keepClicked:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oN2-Wd-FIu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="xEF-nd-yk7" firstAttribute="bottom" secondItem="cld-yR-im5" secondAttribute="bottom" constant="20" id="0t9-UU-RJG"/>
+                            <constraint firstItem="7mJ-20-HJL" firstAttribute="leading" secondItem="xEF-nd-yk7" secondAttribute="centerX" constant="20" id="1SN-kS-0Gn"/>
                             <constraint firstItem="hNl-Pq-ptk" firstAttribute="leading" secondItem="xEF-nd-yk7" secondAttribute="leading" constant="50" id="3zs-BR-8Op"/>
                             <constraint firstItem="jCX-ll-oJR" firstAttribute="bottom" secondItem="xEF-nd-yk7" secondAttribute="bottom" id="Qg5-Zz-YPD"/>
                             <constraint firstItem="xEF-nd-yk7" firstAttribute="bottom" secondItem="iBg-KK-cWi" secondAttribute="bottom" constant="50" id="aO4-YC-xIJ"/>
                             <constraint firstItem="xEF-nd-yk7" firstAttribute="trailing" secondItem="jCX-ll-oJR" secondAttribute="trailing" id="bim-eL-fHq"/>
                             <constraint firstItem="jCX-ll-oJR" firstAttribute="leading" secondItem="xEF-nd-yk7" secondAttribute="leading" id="fcI-VK-uma"/>
                             <constraint firstItem="xEF-nd-yk7" firstAttribute="trailing" secondItem="iBg-KK-cWi" secondAttribute="trailing" constant="50" id="ggL-Tp-xFW"/>
+                            <constraint firstItem="xEF-nd-yk7" firstAttribute="bottom" secondItem="7mJ-20-HJL" secondAttribute="bottom" constant="20" id="iOo-vk-bR5"/>
+                            <constraint firstItem="xEF-nd-yk7" firstAttribute="centerX" secondItem="cld-yR-im5" secondAttribute="trailing" constant="20" id="p6a-Eb-QwI"/>
                             <constraint firstItem="xEF-nd-yk7" firstAttribute="bottom" secondItem="hNl-Pq-ptk" secondAttribute="bottom" constant="50" id="up0-cJ-VOY"/>
                             <constraint firstItem="jCX-ll-oJR" firstAttribute="top" secondItem="xEF-nd-yk7" secondAttribute="top" id="yxY-26-CQb"/>
                         </constraints>
@@ -89,6 +136,9 @@
                     </view>
                     <connections>
                         <outlet property="joystickView" destination="hNl-Pq-ptk" id="Qbd-Dc-gey"/>
+                        <outlet property="jumpButtonView" destination="iBg-KK-cWi" id="SUI-Vf-NXF"/>
+                        <outlet property="keepButton" destination="7mJ-20-HJL" id="6eY-wZ-3jL"/>
+                        <outlet property="resetButton" destination="cld-yR-im5" id="9Cp-bL-gIQ"/>
                         <outlet property="sceneView" destination="jCX-ll-oJR" id="huQ-RR-eoy"/>
                     </connections>
                 </viewController>

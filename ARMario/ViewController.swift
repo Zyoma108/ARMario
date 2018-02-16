@@ -14,16 +14,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet private weak var joystickView: JoyStickView!
+    @IBOutlet private weak var jumpButtonView: UIView!
+    
+    @IBOutlet private weak var resetButton: UIButton!
+    @IBOutlet private weak var keepButton: UIButton!
     
     var sessionConfig = ARWorldTrackingConfiguration()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        joystickView.movable = false
-        joystickView.monitor = { angle, displacement in
-            print("Angle: \(angle)")
-            print("Displacement: \(displacement)")
-        }
+        configure()
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -37,6 +37,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 //
 //        sceneView.scene = scene
 //        scene.rootNode.addChildNode(hero)
+    }
+    
+    private func configure() {
+        joystickView.movable = false
+        joystickView.monitor = { angle, displacement in
+            print("Angle: \(angle)")
+            print("Displacement: \(displacement)")
+        }
     }
     
     private func configure() {
