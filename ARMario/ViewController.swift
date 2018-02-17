@@ -224,7 +224,15 @@ class ViewController: UIViewController, ARSCNViewDelegate, MeteoritesDelegate {
             label?.removeFromSuperview()
         }
         
+        sceneView.scene.rootNode.runAction(SCNAction.playAudio(auch, waitForCompletion: false))
     }
+    
+    private let auch: SCNAudioSource = {
+        let auch = SCNAudioSource(named: "ouch_firehit.mp3")!
+        auch.volume = 2.0
+        auch.load()
+        return auch
+    }()
     
     func pandaIsDead() {
         DispatchQueue.main.async {
